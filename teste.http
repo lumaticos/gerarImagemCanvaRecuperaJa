@@ -2,34 +2,47 @@
 GET http://localhost:3333/relatorio
 Accept: image/png
 
-### POST → envia dados e recebe a imagem em base64
+### POST → envia dados no novo formato e recebe a imagem em base64
 POST http://localhost:3333/relatorio
 Content-Type: application/json
 
-{
-  "aluno": "Lucas",
-  "periodo": "2º Trimestre",
-  "ano": "9º ano – Ensino Fundamental II",
-  "disciplinas": [
-    {
-      "nome": "Matemática",
-      "notaAtual": 5.5,
-      "notaNecessaria": 7.0,
-      "necessidade": "Aumento percentual de 27%",
-      "risco": "Alto risco"
-    },
-    {
-      "nome": "Física",
-      "notaAtual": 6.0,
-      "notaNecessaria": 7.2,
-      "necessidade": "Aumento percentual de 20%",
-      "risco": "Risco Moderado"
+[
+  {
+    "AnaliseDoBoletim": [
+      {
+        "Disciplina": "Matemática",
+        "Média Atual": 5.5,
+        "Nota Necessária (por bimestre)": 7.0,
+        "Percentual Necessário (por bimestre)": "27%",
+        "Risco de Recuperação": "Alto risco",
+        "Tendência": "Piora",
+        "Melhor Cenário (95%)": 6.5,
+        "Pior Cenário (5%)": 4.5,
+        "Horas Estudo Individual Sugeridas (Semanal)": 3
+      },
+      {
+        "Disciplina": "Física",
+        "Média Atual": 6.0,
+        "Nota Necessária (por bimestre)": 7.2,
+        "Percentual Necessário (por bimestre)": "20%",
+        "Risco de Recuperação": "Risco Moderado",
+        "Tendência": "Melhora",
+        "Melhor Cenário (95%)": 7.0,
+        "Pior Cenário (5%)": 5.0,
+        "Horas Estudo Individual Sugeridas (Semanal)": 2.5
+      }
+    ],
+    "PlanoDeEstudosSugerido": {
+      "Total Geral de Dedicação Semanal": 10,
+      "Total Horas Aula (Escola) Semanal": 5,
+      "Total Horas Aulas Particulares Sugeridas (Semanal)": 2,
+      "Total Horas Estudo Individual Sugeridas (Semanal)": 3
     }
-  ]
-}
+  }
+]
 
-### POST → usando dados fixos (fallback do backend)
+### POST → usando fallback (body vazio)
 POST http://localhost:3333/relatorio
 Content-Type: application/json
 
-{}
+[]
