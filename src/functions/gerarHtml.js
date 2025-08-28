@@ -6,7 +6,7 @@ export function gerarHtml(dados) {
     .map((d, i) => {
       const background = i % 2 === 0 ? "#fff" : "#f9f7ff";
       const corRisco =
-        d.risco === "Alto risco"
+        d.risco === "Alto risco" || d.risco === "Altíssimo Risco"
           ? "#ef5350"
           : d.risco === "Risco Moderado"
           ? "#ffca28"
@@ -36,7 +36,7 @@ export function gerarHtml(dados) {
         <table style="width:100%; border-collapse: collapse; text-align:center; font-size:15px; border-radius:12px; overflow:hidden; color:#000;">
           <tr style="background-color:#6C63FF; color:#000; font-weight:600; font-size:15px; height:60px;">
             <th>Disciplinas</th>
-            <th>Notas atuais</th>
+            <th>Médias atuais</th>
             <th>Nota necessária</th>
             <th>Necessidade</th>
             <th>Análise de Risco Escolar</th>
