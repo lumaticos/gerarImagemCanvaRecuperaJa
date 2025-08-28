@@ -50,6 +50,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     curl \
     unzip \
+    libgbm1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Copie todo o código da aplicação
