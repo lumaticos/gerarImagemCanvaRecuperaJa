@@ -6,9 +6,9 @@ export function gerarHtml(dados) {
     .map((d, i) => {
       const background = i % 2 === 0 ? "#fff" : "#f9f7ff";
       const corRisco =
-        d.risco === "Alto risco" || d.risco === "Altíssimo Risco"
+        d.risco === "Alto risco" || d.risco === "Altíssimo risco"
           ? "#ef5350"
-          : d.risco === "Risco Moderado"
+          : d.risco === "Risco roderado"
           ? "#ffca28"
           : "#66bb6a"; // verde para "Sem risco" ou outros casos
 
