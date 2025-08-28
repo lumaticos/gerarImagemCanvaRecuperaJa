@@ -1,0 +1,35 @@
+### GET → retorna a imagem diretamente como PNG
+GET http://localhost:3333/relatorio
+Accept: image/png
+
+### POST → envia dados e recebe a imagem em base64
+POST http://localhost:3333/relatorio
+Content-Type: application/json
+
+{
+  "aluno": "Lucas",
+  "periodo": "2º Trimestre",
+  "ano": "9º ano – Ensino Fundamental II",
+  "disciplinas": [
+    {
+      "nome": "Matemática",
+      "notaAtual": 5.5,
+      "notaNecessaria": 7.0,
+      "necessidade": "Aumento percentual de 27%",
+      "risco": "Alto risco"
+    },
+    {
+      "nome": "Física",
+      "notaAtual": 6.0,
+      "notaNecessaria": 7.2,
+      "necessidade": "Aumento percentual de 20%",
+      "risco": "Risco Moderado"
+    }
+  ]
+}
+
+### POST → usando dados fixos (fallback do backend)
+POST http://localhost:3333/relatorio
+Content-Type: application/json
+
+{}
